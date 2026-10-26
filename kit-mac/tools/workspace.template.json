@@ -1,0 +1,94 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "__PYTHON__",
+    "python.terminal.activateEnvironment": true,
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "files.exclude": {
+      "**/__pycache__": true
+    },
+    "workbench.startupEditor": "none"
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Reachy: start simulator",
+        "type": "process",
+        "command": "/bin/bash",
+        "args": [
+          "${workspaceFolder}/tools/start-sim.sh"
+        ],
+        "problemMatcher": [],
+        "presentation": {
+          "panel": "dedicated",
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "Reachy: start simulator (empty scene)",
+        "type": "process",
+        "command": "/bin/bash",
+        "args": [
+          "${workspaceFolder}/tools/start-sim.sh",
+          "empty"
+        ],
+        "problemMatcher": [],
+        "presentation": {
+          "panel": "dedicated",
+          "reveal": "always"
+        }
+      },
+      {
+        "label": "Reachy: run current file",
+        "type": "process",
+        "command": "__PYTHON__",
+        "args": [
+          "${file}"
+        ],
+        "options": {
+          "cwd": "${workspaceFolder}"
+        },
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "Reachy: check installation",
+        "type": "process",
+        "command": "__PYTHON__",
+        "args": [
+          "${workspaceFolder}/tools/check_env.py"
+        ],
+        "problemMatcher": []
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Reachy: debug current file",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${file}",
+        "python": "__PYTHON__",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.debugpy",
+      "ms-toolsai.jupyter"
+    ]
+  }
+}

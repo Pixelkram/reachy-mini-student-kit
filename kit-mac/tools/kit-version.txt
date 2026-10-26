@@ -1,0 +1,1 @@
+2026.10.1 (reachy-mini 1.12.0, Python 3.12)

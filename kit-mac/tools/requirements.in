@@ -1,0 +1,6 @@
+# Top-level requirements of the Reachy Mini student kit.
+# The installer uses requirements.lock.txt (fully pinned, generated from this file).
+reachy-mini[mujoco,opencv]==1.12.0
+ipykernel
+ipywidgets
+matplotlib
